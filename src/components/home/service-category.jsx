@@ -1,133 +1,157 @@
-"use client";
-import React from "react";
-import { IoSearch } from "react-icons/io5";
-import Card from "../utils/card";
-import { IoIosArrowRoundForward } from "react-icons/io";
+import Image from "next/image";
+import Link from "next/link";
+import { CiLocationOn, CiSearch } from "react-icons/ci";
 
-const ServiceCategory = () => {
-  // Example category data
+const ServiceCategories = () => {
   const categories = [
     {
-      title: "Beauty",
-      categories: [
+      name: "Beauty",
+      branches: [
         "Makeup Artists",
         "Hair stylists",
         "Nail Tech",
         "Skincare Specialist",
       ],
-      buttonLabel: "Find Services",
-      imageSrc: "/home/woman.svg",
-      ImageSize: { width: "100%", height: "auto" },
+      navigateTo: "Beauty",
+      image: "/home/woman.svg",
     },
     {
-      title: "Food & Baking",
-      categories: [
+      name: "Food & Baking",
+      branches: [
         "Private Chefs",
         "Event Catering Services",
         "Bakers",
         "Cooking Instructors",
       ],
-      buttonLabel: "Find Services",
-      imageSrc: "/home/chef cook.svg",
-      ImageSize: { width: "100%", height: "auto" },
+      navigateTo: "Food & Baking",
+      image: "/home/chef cook.svg",
     },
     {
-      title: "Home Services",
-      categories: [
+      name: "Home Services",
+      branches: [
         "Cleaning Services",
         "Laundry & Ironing",
         "Gardening",
         "Fumigation",
       ],
-      buttonLabel: "Find Services",
-      imageSrc: "/home/Home_servicess1-.svg",
-      ImageSize: { width: "100%", height: "auto" },
+      navigateTo: "Home Services",
+      image: "/home/Home_servicess1-.svg",
     },
     {
-      title: "Event Planning",
-      categories: [
+      name: "Event Planning",
+      branches: [
         "Photographer/Videographer",
         "DJ & Live Bands",
-        "Mc’s and Event Hosts",
+        "MC's and Event Hosts",
         "Event Planner",
       ],
-      buttonLabel: "Find Services",
-      imageSrc: "/home/Camera1.svg",
-      ImageSize: { width: "100%", height: "auto" },
+      navigateTo: "Event Planning",
+      image: "/home/Camera1.svg",
     },
     {
-      title: "Health and Wellness",
-      categories: [
+      name: "Health and Wellness",
+      branches: [
         "Fitness Trainer",
         "Massage Therapy",
         "Nutritionist & Dietitians",
       ],
-      buttonLabel: "Find Services",
-      imageSrc: "/home/gym.svg",
-      ImageSize: { width: "100%", height: "auto" },
+      navigateTo: "beauty",
+      image: "/home/gym.svg",
     },
     {
-      title: "Handyman Services",
-      categories: ["Electrician", "Plumber", "Carpenter", "Painter"],
-      buttonLabel: "Find Services",
-      imageSrc: "/home/hometech.png",
-      ImageSize: { width: "100%", height: "auto" },
+      name: "Handyman Services",
+      branches: ["Electrician", "Plumber", "Carpenter", "Painter"],
+      navigateTo: "Handy Man",
+      image: "/home/hometech.png",
     },
   ];
 
   return (
-    <section className="service-category-section bg-white flex w-full p-4 flex-col items-start gap-6">
-      <div className="container mx-auto">
-        <div className="row">
-          <div className="col-12 text-center">
-            <h2 className="text-Teal_blue-50 text-center text-2xl font-bold leading-tight pt-20">
-              Service Categories
-            </h2>
-          </div>
-        </div>
-
-        {/* Search Section */}
-        <div className="col-12 text-center mt-9">
-          <div className="relative w-full max-w-4xl mx-auto">
+    <div
+      className=" bg-white w-full pt-[50px] pb-[50px] max-lg:pb-[100px]"
+      id="categories"
+    >
+      <div className="flex flex-col items-center justify-center gap-[40px] lg:gap-[70px]">
+        <div className="w-[90%] md:w-[60%] flex flex-col items-center justify-center gap-[27px]">
+          <p className="text-primary text-[24px] font-bold">
+            Service Categories
+          </p>
+          <div className="relative w-full h-[45px] rounded-[50px]">
             <input
               type="text"
-              className="w-full border border-Teal_blue-50 rounded-full py-3 px-6 pl-14 text-sm shadow-lg text-gray-700 focus:outline-none focus:border-Teal_blue-50 focus:ring-1 focus:ring-Teal_blue-50 transition-all duration-300"
+              className="w-full h-full rounded-[50px] border pl-[20px] lg:pl-[60px] pr-[60px] focus:text-black outline-Teal_blue-50"
               placeholder="Find trusted services, e.g., hair styling or plumbing"
             />
-            <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none">
-              <IoSearch size={24} className="text-gray-400" />
-            </div>
-            <button className="absolute inset-y-1.5 right-1.5 px-12 py-2 bg-Teal_blue-50 font-bold text-sm text-white rounded-full transition-all duration-300 flex items-center justify-center">
+            <button className="h-[80%] bg-primary text-white px-[40px] flex items-center justify-center absolute top-1/2 -translate-y-1/2 rounded-[50px] right-[8px] max-lg:hidden font-bold">
               Search
+            </button>
+            <button className="h-[35px] w-[35px] bg-white bg-opacity-55 font-bold text-primary flex items-center justify-center absolute top-1/2 -translate-y-1/2 rounded-[100%] right-[8px] lg:left-[8px]">
+              <CiSearch size={26} />
             </button>
           </div>
         </div>
-
-        {/* Cards Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-20">
-          {categories.map((category, index) => (
-            <Card
-              key={index}
-              title={category.title}
-              categories={category.categories}
-              buttonLabel={category.buttonLabel}
-              imageSrc={category.imageSrc}
-              imageSize={{ width: category.ImageSize }}
-              onButtonClick={() => alert(`Clicked on ${category.title}`)}
-            />
-          ))}
+        <div className="flex items-center justify-center">
+          <div className="w-[95%] grid md:grid-cols-2 lg:grid-cols-3 gap-[21px]">
+            {categories.map((category, index) => (
+              <div
+                key={index}
+                className="flex justify-between rounded-[8px] overflow-clip shadow-xl bg-white border border-gray-100"
+              >
+                <div className="flex flex-col justify-between w-[50%] pt-[12px] pb-[24px] pl-[16px] gap-[16px]">
+                  <div className="w-full flex flex-col gap-[8px]">
+                    <p className="text-[20px] font-bold text-[#2D2D2D]">
+                      {category.name}
+                    </p>
+                    <div className="w-full grow flex flex-col px-[12px] text-primary gap-[4px]">
+                      {category.branches.map((branch, index) => (
+                        <div
+                          key={index}
+                          className="flex items-center gap-[12px] text-[14px] w-full"
+                        >
+                          <div className="w-[5%]">
+                            <div className="w-[4px] h-[4px] rounded-[100%] bg-primary" />
+                          </div>
+                          <Link
+                            href={{
+                              pathname: `/explore`,
+                              query: {
+                                category: `${category.navigateTo}, ${branch}`,
+                              },
+                            }}
+                          >
+                            {branch}
+                          </Link>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  <div>
+                    <Link
+                      href={{
+                        pathname: "/explore",
+                        query: { category: category.navigateTo },
+                      }}
+                      className="bg-primary h-[40px] rounded-[50px] text-white px-[24px] flex items-center justify-center font-bold"
+                    >
+                      Find Services
+                    </Link>
+                  </div>
+                </div>
+                <Image
+                  src={category.image}
+                  width={200}
+                  height={200}
+                  style={{ width: "50%", height: "100%" }}
+                  alt="category image"
+                  className=""
+                />
+              </div>
+            ))}
+          </div>
         </div>
-        
-        <div className="flex items-end justify-end ">
-  <h1 className="text-end text-Teal_blue-50 pt-5 text-lg">
-    Explore Full View
-  </h1>
-  <IoIosArrowRoundForward className="ml-2 mt-6 text-Teal_blue-50" size={24} />
-</div>
-
       </div>
-    </section>
+    </div>
   );
 };
 
-export default ServiceCategory;
+export default ServiceCategories;

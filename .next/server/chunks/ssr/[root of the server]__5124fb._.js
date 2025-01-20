@@ -172,7 +172,7 @@ const CustomRootLayout = ({ children })=>{
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$home$2f$footer$2d$section$2e$jsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                 fileName: "[project]/src/components/layout/root-layout.jsx",
                 lineNumber: 12,
-                columnNumber: 7
+                columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
@@ -202,10 +202,10 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$layout$
 ;
 ;
 ;
-const APP_NAME = "Zana";
-const APP_DEFAULT_TITLE = "Zana";
-const APP_TITLE_TEMPLATE = "%s - Zana";
-const APP_DESCRIPTION = "Zana is a simple application that helps you to find the best service providers in your area.";
+const APP_NAME = "Zena";
+const APP_DEFAULT_TITLE = "Zena";
+const APP_TITLE_TEMPLATE = "%s - Zena";
+const APP_DESCRIPTION = "Zena is a simple application that helps you to find the best service providers in your area.";
 const metadata = {
     applicationName: APP_NAME,
     title: {
@@ -252,17 +252,17 @@ function RootLayout({ children }) {
                 children: children
             }, void 0, false, {
                 fileName: "[project]/src/app/layout.js",
-                lineNumber: 64,
+                lineNumber: 65,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/src/app/layout.js",
-            lineNumber: 61,
+            lineNumber: 62,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/app/layout.js",
-        lineNumber: 60,
+        lineNumber: 61,
         columnNumber: 5
     }, this);
 }

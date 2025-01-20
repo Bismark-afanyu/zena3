@@ -2,47 +2,88 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MdOutlineLocalActivity, MdOutlineSupportAgent } from "react-icons/md";
 import { IoSearch } from "react-icons/io5";
 import { FiHome } from "react-icons/fi";
 import Button from "../utils/Button";
 import { NAV_LINKS } from "../constants";
 
-
 const Navbar = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  const [open, setOpen] = useState(false);
+
+  const toggleDrawer = (newOpen) => () => {
+    setOpen(newOpen);
+  };
+
+  // Handle scroll direction and navbar visibility
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > lastScrollY && currentScrollY > 50) {
+        setIsVisible(false); // Scrolling down
+      } else {
+        setIsVisible(true); // Scrolling up
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [lastScrollY]);
+
   return (
     <>
-      {/* Desktop Navbar */}
-      <nav className="bg-Teal_blue-50 flexBetween max-container padding-container  py-5 sm:hidden lg:flex">
-        <Link href="/">
-          <Image src="/logos/Zena Logo trnsptw 1.png" alt="logo" width={50} height={20} />
-        </Link>
-        <ul className="hidden h-full gap-12 lg:flex">
-          {NAV_LINKS.map((link, index) => (
-            <li key={link.key}>
-              <Link
-                href={link.href}
-                onClick={() => setActiveIndex(index)}
-                className={`regular-16 text-white flexCenter cursor-pointer pb-1.5 transition-all hover:font-bold ${
-                  activeIndex === index
-                    ? "bg-Teal_blue-30 rounded-[15px] px-3 py-1 font-bold"
-                    : ""
-                }`}
-              >
-                {link.lable}
-              </Link>
-            </li>
-          ))}
-        </ul>
-        <div className="lg:flexCenter ">
-                    <Button type="button" title="Become a Service Provider" variant="btn_yellow" />
-        </div>
-      </nav>
+        <nav
+          className={`bg-Teal_blue-50 w-full flexBetween py-5 sm:hidden lg:flex ${
+            isVisible ? "visible" : "hidden"
+          }`}
+        >
+          <Link href="/" className="ml-8">
+            <Image
+          src="/logos/Zena Logo trnsptw 1.png"
+          alt="logo"
+          width={50}
+          height={20}
+            />
+          </Link>
+          <ul className="hidden h-full gap-12 lg:flex">
+            {NAV_LINKS.map((link, index) => (
+          <li key={link.key}>
+            <Link
+              href={link.href}
+              onClick={() => setActiveIndex(index)}
+              className={`regular-16 text-white flexCenter cursor-pointer pb-1.5 transition-all hover:font-bold ${
+            activeIndex === index
+              ? "bg-Teal_blue-30 rounded-[15px] px-3 py-1 font-bold"
+              : ""
+              }`}
+            >
+              {link.lable}
+            </Link>
+          </li>
+            ))}
+          </ul>
+          <div className="lg:flexCenter  mr-10">
+            <Button
+          type="button"
+          title="Become a Service Provider"
+          variant="btn_yellow"
+            />
+          </div>
+        </nav>
 
-      {/* Mobile Bottom Navbar */}
+        {/* Mobile Bottom Navbar */}
       <nav className="fixed bottom-0 left-0 right-0 bg-white z-30 shadow-lg sm:flex lg:hidden flex-col items-center">
         <ul className="flex justify-between items-center w-full px-4 py-3">
           {NAV_LINKS.map((link, index) => (
@@ -61,7 +102,14 @@ const Navbar = () => {
                   {index === 1 && <IoSearch size={24} />}
                   {index === 2 && <MdOutlineLocalActivity size={24} />}
                   {index === 3 && <MdOutlineSupportAgent size={24} />}
-                  {index === 4 && <Image src="/home/chat_info.svg" alt="logo" width={24} height={24} />}
+                  {index === 4 && (
+                    <Image
+                      src="/home/chat_info.svg"
+                      alt="logo"
+                      width={24}
+                      height={24}
+                    />
+                  )}
                 </span>
                 {link.lable}
               </Link>

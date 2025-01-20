@@ -1,9 +1,8 @@
 import HeroSection from "@/components/home/hero-section";
-import WhyTrustZanaSection from "@/components/home/why-trust-zana-section";
 import ServiceCategory from "@/components/home/service-category";
+import WhyTrustZenaSection from "@/components/home/why-trust-zena-section";
 import FaqsSection from "@/components/home/faqs-section";
 import ReportIssueSection from "@/components/home/report-issue";
-import ExploreCategory from "@/components/explore/explore-heading";
 
 export default function Home() {
   return (
@@ -11,7 +10,7 @@ export default function Home() {
       {/* <ExploreCategory/> */}
 
       <HeroSection />
-      <WhyTrustZanaSection />
+      <WhyTrustZenaSection />
       <ServiceCategory />
       <FaqsSection />
       <ReportIssueSection />

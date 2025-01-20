@@ -9,7 +9,8 @@ const CustomRootLayout = ({children}) => {
     <div className="w-full open-sans">
       <NavBar/>
       <div>{children}</div>
-      <Footer/>
+            <Footer/>
+
 
     </div>
   );

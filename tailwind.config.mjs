@@ -9,6 +9,7 @@ export default {
     extend: {
       colors: {
         Teal_blue: {
+          5: "#2A9D8F2E",
           30: '#F9E49145',
           50: '#007B83',
           90: '#006B76',
@@ -19,7 +20,6 @@ export default {
           5: "#2A9D8F40",
           10: "#2A9D8F2E",
           50: "#2A9D8F"
-
         },
         green: {
           50: '#30AF5B',
@@ -36,6 +36,7 @@ export default {
           50: '#585858',
           90: '#141414',
           100: '#e1e0dd',
+
         },
         drop_shadow:{
           10: '#00000040' 

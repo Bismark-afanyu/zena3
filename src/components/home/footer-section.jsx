@@ -5,7 +5,7 @@ import { FaInstagram, FaFacebook, FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="bg-Teal_blue-50 text-white py-12">
+    <footer className="bg-Teal_blue-50 text-white py-12 hidden md:block ">
       <div className="container mx-auto px-4 lg:px-16">
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Right Part - Logo and Social Media */}
@@ -13,7 +13,7 @@ const Footer = () => {
             <img
               src="/logos/Zena Logo trnsptw 1.png"
               alt="Logo"
-              className="w-28 h-auto mb-4 pl-10"
+              className="w-1/4 h-auto mb-4 pl-10"
             />
             <p className="text-xs text-white pb-10 font-bold">
               A platform that connects people looking for freelancer services in
@@ -70,15 +70,15 @@ const Footer = () => {
             <img
               src="/home/footer_Img.svg"
               alt="Footer Menu Image"
-              className="w-fit h-auto mt-6"
+              className="w-full h-auto mt-6"
             />
           </div>
           <div className="lg:w-1/4">
             <h4 className="text-2xl font-bold mb-4">Secure & Trusted</h4>
             <img
-              src="/path-to-secure-logo.png"
+              src="logos/footerlogo.svg"
               alt="Secure Logo"
-              className="w-16 h-auto mb-4"
+              className="w-1/4 h-auto mb-4"
             />
             <p className="text-sm font-bold">+100,000 Service completed.</p>
           </div>
@@ -96,7 +96,7 @@ const Footer = () => {
                 support@example.com
               </span>
             </p>
-            <ul className="text-sm space-y-2 pl-20 pt-16 font-bold">
+            <ul className="text-sm space-y-2 pl-5 lg:pl-20 pt-16 font-bold">
               <li>
                 <a href="#" className="text-yellow-500 underline">
                   Quality Standards

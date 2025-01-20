@@ -11,10 +11,11 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const APP_NAME = "Zana";
-const APP_DEFAULT_TITLE = "Zana";
-const APP_TITLE_TEMPLATE = "%s - Zana";
-const APP_DESCRIPTION = "Zana is a simple application that helps you to find the best service providers in your area.";
+const APP_NAME = "Zena";
+const APP_DEFAULT_TITLE = "Zena";
+const APP_TITLE_TEMPLATE = "%s - Zena";
+const APP_DESCRIPTION =
+  "Zena is a simple application that helps you to find the best service providers in your area.";
 
 export const metadata = {
   applicationName: APP_NAME,
@@ -61,9 +62,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <CustomRootLayout>
-          {children}
-        </CustomRootLayout>
+        <CustomRootLayout>{children}</CustomRootLayout>
       </body>
     </html>
   );

@@ -36,7 +36,6 @@ const FaqsSection = () => {
   return (
     <section className="service-category-section bg-white flex w-full p-4 flex-col items-center gap-6">
       <div className="container mx-auto max-w-3xl">
-        {" "}
         {/* Header Section */}
         <div className="row">
           <div className="col-12 text-center">
@@ -47,7 +46,7 @@ const FaqsSection = () => {
               Get quick solutions to your questions.
             </h2>
             <div className="w-full flex justify-center">
-              <ul className="hidden lg:flex items-center pt-8 gap-16 border-b-2 border-yellow-200 px-28 max-w-screen-2xl">
+              <ul className="hidden lg:flex items-center pt-8 gap-16 border-b-2 border-yellow-200 px-4 lg:px-28 max-w-screen-2xl">
                 {FAQs_LINKS.map((link, index) => (
                   <li key={link.key}>
                     <Link
@@ -94,26 +93,24 @@ const FaqsSection = () => {
           ))}
         </div>
       </div>
-      {/* Live Chat Section */}
-      <div className="live-chat-section border border-yellow-200 w-full rounded-lg flex justify-between items-center pt-8 pb-8">
-        {/* Left Text Section */}
-        <div>
-          <h3 className="text-3xl font-bold text-Teal_blue-50 pl-80">
-            Live Chat 
-          </h3>
-          <p className="text-gray-600 text-m mt-2 pl-80 ">
-          Chat with Us Now for Instant Support          </p>
-        </div>
-        {/* Right Button Section */}
-        <div className="pr-80">
-            
-        <button className="bg-Teal_blue-50 font-semibold text-white px-6 py-2 pr-10 pl-10 rounded-full hover:bg-Teal_blue-70 transition duration-300 flex items-center">
-  <IoChatbubbleOutline className="mr-2" />
-  Chat Now
-</button>
+      
+      <div className="live-chat-section border border-yellow-200 w-full rounded-lg flex flex-col lg:flex-row justify-between items-center pt-8 pb-8 px-4 sm:px-6 md:px-8 lg:px-0">
+  <div className="text-center lg:text-left">
+    <h3 className="text-2xl sm:text-3xl font-bold text-Teal_blue-50">
+      Live Chat 
+    </h3>
+    <p className="text-gray-600 text-sm sm:text-base mt-2">
+      Chat with Us Now for Instant Support
+    </p>
+  </div>
+  <div className="mt-4 lg:mt-0">
+    <button className="bg-Teal_blue-50 font-semibold text-white px-4 sm:px-6 py-2 rounded-full hover:bg-Teal_blue-70 transition duration-300 flex items-center">
+      <IoChatbubbleOutline className="mr-2" />
+      Chat Now
+    </button>
+  </div>
+</div>
 
-        </div>
-      </div>
     </section>
   );
 };

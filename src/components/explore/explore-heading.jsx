@@ -3,6 +3,7 @@
 import { IoSearch } from "react-icons/io5";
 import { MdOutlineArrowDropDown } from "react-icons/md";
 import { useState, useRef, useEffect } from "react";
+import { CiSearch } from "react-icons/ci";
 
 const ExploreCategory = () => {
   const exploreTypes = ["Category", "Location", "Ratings", "Delivery Type"];
@@ -71,36 +72,33 @@ const ExploreCategory = () => {
         {/* Heading */}
         <div className="row">
           <div className="col-12 text-center">
-            <h2 className="text-teal_light-50 text-center text-2xl font-bold leading-tight pt-16">
+            <h2 className="text-teal_light-50 text-center text-2xl font-bold leading-tight pt-16 pb-10">
               Your Bookings - Simplified
             </h2>
           </div>
         </div>
 
         {/* Search Section */}
-        <div className="col-12 text-center mt-9">
-          <div className="relative w-full max-w-2xl mx-auto">
-            <input
-              type="text"
-              className="w-full border border-Teal_blue-50 rounded-full py-3 px-6 pl-14 text-sm shadow-lg text-gray-700 focus:outline-none focus:border-Teal_blue-50 focus:ring-1 focus:ring-Teal_blue-50 transition-all duration-300"
-              placeholder="Find trusted services, e.g., hair styling or plumbing"
-            />
-            <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none">
-              <IoSearch size={24} className="text-gray-400" />
-            </div>
-            <button className="absolute inset-y-1.5 right-1.5 px-12 py-2 bg-Teal_blue-50 font-bold text-sm text-white rounded-full transition-all duration-300 flex items-center justify-center">
-              Search
-            </button>
-          </div>
+        <div className="relative w-full h-[45px] rounded-[50px]">
+          <input
+            type="text"
+            className="w-full h-full rounded-[50px] border pl-[20px] lg:pl-[60px] pr-[60px] focus:text-black outline-Teal_blue-50"
+            placeholder="Find trusted services, e.g., hair styling or plumbing"
+          />
+          <button className="h-[80%] bg-primary text-white px-[40px] flex items-center justify-center absolute top-1/2 -translate-y-1/2 rounded-[50px] right-[8px] max-lg:hidden font-bold">
+            Search
+          </button>
+          <button className="h-[35px] w-[35px] bg-white bg-opacity-55 font-bold text-primary flex items-center justify-center absolute top-1/2 -translate-y-1/2 rounded-[100%] right-[8px] lg:left-[8px]">
+            <CiSearch size={26} />
+          </button>
         </div>
 
-        {/* Filter Section */}
-        <div className="col-12 mt-6 pt-10 flex">
-          <div className="flex gap-10">
+        <div className="col-12 mt-6 pt-10 lg:flex justify-start md:justify-start  ">
+          <div className="flex gap-10 ">
             {exploreTypes.map((type, index) => (
               <button
                 key={index}
-                className="w-40 px-4 py-2 bg-teal_light-10  rounded-full shadow-sm hover:shadow-md hover:bg-teal_light-10 transition-all duration-300 text-gray-700 font-medium text-left flex items-center justify-between"
+                className="w-40 px-4 py-2 bg-teal_light-10 border border-Teal_blue-50 rounded-full shadow-sm hover:shadow-md hover:bg-teal_light-10 transition-all duration-300 text-gray-700 font-medium text-left flex items-center justify-between"
               >
                 {type}
                 <MdOutlineArrowDropDown
@@ -111,8 +109,7 @@ const ExploreCategory = () => {
             ))}
           </div>
 
-          {/* Slider and Amount Display */}
-          <div className="relative flex items-center gap-4 ml-4 w-full">
+          <div className="relative flex items-center gap-4 ml-8 w-full">
             <div
               ref={cardRef}
               className="absolute top-[-35px] left-0 transform w-20 h-10 bg-Teal_blue-50 rounded-full flex items-center justify-center text-white font-bold cursor-pointer"
@@ -126,7 +123,7 @@ const ExploreCategory = () => {
               id="amount-slider"
               type="range"
               min="0"
-              max="1000"
+              max="900"
               value={amount}
               onChange={handleSliderChange}
               className="w-64 h-2 bg-Teal_blue-50 rounded-full cursor-pointer"

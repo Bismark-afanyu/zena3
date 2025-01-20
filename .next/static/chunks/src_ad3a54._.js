@@ -67,14 +67,9 @@ const NAV_LINKS = [
         lable: "Booking"
     },
     {
-        href: '/support',
-        key: 'support',
-        lable: "Support"
-    },
-    {
-        href: '/about',
-        key: 'about',
-        lable: "About"
+        href: '/trust',
+        key: 'trust',
+        lable: "Trust"
     }
 ];
 const FAQs_LINKS = [
@@ -85,7 +80,7 @@ const FAQs_LINKS = [
     },
     {
         href: '',
-        key: 'booking',
+        key: 'bookings',
         lable: "Booking"
     },
     {
@@ -171,13 +166,44 @@ var _s = __turbopack_refresh__.signature();
 const Navbar = ()=>{
     _s();
     const [activeIndex, setActiveIndex] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(0);
+    const [isVisible, setIsVisible] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(true);
+    const [lastScrollY, setLastScrollY] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(0);
+    const [open, setOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    const toggleDrawer = (newOpen)=>()=>{
+            setOpen(newOpen);
+        };
+    // Handle scroll direction and navbar visibility
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "Navbar.useEffect": ()=>{
+            const handleScroll = {
+                "Navbar.useEffect.handleScroll": ()=>{
+                    const currentScrollY = window.scrollY;
+                    if (currentScrollY > lastScrollY && currentScrollY > 50) {
+                        setIsVisible(false); // Scrolling down
+                    } else {
+                        setIsVisible(true); // Scrolling up
+                    }
+                    setLastScrollY(currentScrollY);
+                }
+            }["Navbar.useEffect.handleScroll"];
+            window.addEventListener("scroll", handleScroll);
+            return ({
+                "Navbar.useEffect": ()=>{
+                    window.removeEventListener("scroll", handleScroll);
+                }
+            })["Navbar.useEffect"];
+        }
+    }["Navbar.useEffect"], [
+        lastScrollY
+    ]);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
-                className: "bg-Teal_blue-50 flexBetween max-container padding-container  py-5 sm:hidden lg:flex",
+                className: `bg-Teal_blue-50 w-full flexBetween py-5 sm:hidden lg:flex ${isVisible ? "visible" : "hidden"}`,
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                         href: "/",
+                        className: "ml-8",
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                             src: "/logos/Zena Logo trnsptw 1.png",
                             alt: "logo",
@@ -185,13 +211,13 @@ const Navbar = ()=>{
                             height: 20
                         }, void 0, false, {
                             fileName: "[project]/src/components/layout/navbar.jsx",
-                            lineNumber: 21,
-                            columnNumber: 11
+                            lineNumber: 53,
+                            columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/components/layout/navbar.jsx",
-                        lineNumber: 20,
-                        columnNumber: 9
+                        lineNumber: 52,
+                        columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
                         className: "hidden h-full gap-12 lg:flex",
@@ -203,40 +229,40 @@ const Navbar = ()=>{
                                     children: link.lable
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/layout/navbar.jsx",
-                                    lineNumber: 26,
-                                    columnNumber: 15
+                                    lineNumber: 63,
+                                    columnNumber: 13
                                 }, this)
                             }, link.key, false, {
                                 fileName: "[project]/src/components/layout/navbar.jsx",
-                                lineNumber: 25,
-                                columnNumber: 13
+                                lineNumber: 62,
+                                columnNumber: 11
                             }, this))
                     }, void 0, false, {
                         fileName: "[project]/src/components/layout/navbar.jsx",
-                        lineNumber: 23,
-                        columnNumber: 9
+                        lineNumber: 60,
+                        columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "lg:flexCenter ",
+                        className: "lg:flexCenter  mr-10",
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$utils$2f$Button$2e$jsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                             type: "button",
                             title: "Become a Service Provider",
                             variant: "btn_yellow"
                         }, void 0, false, {
                             fileName: "[project]/src/components/layout/navbar.jsx",
-                            lineNumber: 41,
-                            columnNumber: 21
+                            lineNumber: 78,
+                            columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/components/layout/navbar.jsx",
-                        lineNumber: 40,
-                        columnNumber: 9
+                        lineNumber: 77,
+                        columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/layout/navbar.jsx",
-                lineNumber: 19,
-                columnNumber: 7
+                lineNumber: 47,
+                columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
                 className: "fixed bottom-0 left-0 right-0 bg-white z-30 shadow-lg sm:flex lg:hidden flex-col items-center",
@@ -256,28 +282,28 @@ const Navbar = ()=>{
                                                 size: 24
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/layout/navbar.jsx",
-                                                lineNumber: 60,
+                                                lineNumber: 101,
                                                 columnNumber: 35
                                             }, this),
                                             index === 1 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$io5$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["IoSearch"], {
                                                 size: 24
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/layout/navbar.jsx",
-                                                lineNumber: 61,
+                                                lineNumber: 102,
                                                 columnNumber: 35
                                             }, this),
                                             index === 2 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$md$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["MdOutlineLocalActivity"], {
                                                 size: 24
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/layout/navbar.jsx",
-                                                lineNumber: 62,
+                                                lineNumber: 103,
                                                 columnNumber: 35
                                             }, this),
                                             index === 3 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$md$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["MdOutlineSupportAgent"], {
                                                 size: 24
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/layout/navbar.jsx",
-                                                lineNumber: 63,
+                                                lineNumber: 104,
                                                 columnNumber: 35
                                             }, this),
                                             index === 4 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -287,41 +313,41 @@ const Navbar = ()=>{
                                                 height: 24
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/layout/navbar.jsx",
-                                                lineNumber: 64,
-                                                columnNumber: 35
+                                                lineNumber: 106,
+                                                columnNumber: 21
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/layout/navbar.jsx",
-                                        lineNumber: 59,
+                                        lineNumber: 100,
                                         columnNumber: 17
                                     }, this),
                                     link.lable
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/layout/navbar.jsx",
-                                lineNumber: 50,
+                                lineNumber: 91,
                                 columnNumber: 15
                             }, this)
                         }, link.key, false, {
                             fileName: "[project]/src/components/layout/navbar.jsx",
-                            lineNumber: 49,
+                            lineNumber: 90,
                             columnNumber: 13
                         }, this))
                 }, void 0, false, {
                     fileName: "[project]/src/components/layout/navbar.jsx",
-                    lineNumber: 47,
+                    lineNumber: 88,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/components/layout/navbar.jsx",
-                lineNumber: 46,
+                lineNumber: 87,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true);
 };
-_s(Navbar, "rd+5N/MkYjuYD0I+B+MlySxQysU=");
+_s(Navbar, "wAXsrSjavyNQigVp13qB/7+qUew=");
 _c = Navbar;
 const __TURBOPACK__default__export__ = Navbar;
 var _c;
@@ -347,7 +373,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$ico
 ;
 const Footer = ()=>{
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("footer", {
-        className: "bg-Teal_blue-50 text-white py-12",
+        className: "bg-Teal_blue-50 text-white py-12 hidden md:block ",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "container mx-auto px-4 lg:px-16",
@@ -360,7 +386,7 @@ const Footer = ()=>{
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
                                     src: "/logos/Zena Logo trnsptw 1.png",
                                     alt: "Logo",
-                                    className: "w-28 h-auto mb-4 pl-10"
+                                    className: "w-1/4 h-auto mb-4 pl-10"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/home/footer-section.jsx",
                                     lineNumber: 13,
@@ -520,7 +546,7 @@ const Footer = ()=>{
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
                                     src: "/home/footer_Img.svg",
                                     alt: "Footer Menu Image",
-                                    className: "w-fit h-auto mt-6"
+                                    className: "w-full h-auto mt-6"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/home/footer-section.jsx",
                                     lineNumber: 70,
@@ -544,9 +570,9 @@ const Footer = ()=>{
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                                    src: "/path-to-secure-logo.png",
+                                    src: "logos/footerlogo.svg",
                                     alt: "Secure Logo",
-                                    className: "w-16 h-auto mb-4"
+                                    className: "w-1/4 h-auto mb-4"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/home/footer-section.jsx",
                                     lineNumber: 78,
@@ -616,7 +642,7 @@ const Footer = ()=>{
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
-                                    className: "text-sm space-y-2 pl-20 pt-16 font-bold",
+                                    className: "text-sm space-y-2 pl-5 lg:pl-20 pt-16 font-bold",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
