@@ -13,7 +13,7 @@ const Footer = () => {
             <img
               src="/logos/Zena Logo trnsptw 1.png"
               alt="Logo"
-              className="w-1/4 h-auto mb-4 pl-10"
+              className="w-1/2 h-auto mb-4 pl-10"
             />
             <p className="text-xs text-white pb-10 font-bold">
               A platform that connects people looking for freelancer services in

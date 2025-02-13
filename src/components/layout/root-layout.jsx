@@ -7,9 +7,9 @@ import Footer from "../home/footer-section";
 const CustomRootLayout = ({children}) => {
   return ( 
     <div className="w-full open-sans">
-      <NavBar/>
+      {/* <NavBar/> */}
       <div>{children}</div>
-            <Footer/>
+            {/* <Footer/> */}
 
 
     </div>

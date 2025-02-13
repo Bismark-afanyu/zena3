@@ -5,7 +5,7 @@ const Button = ({ type, title, icon, variant, borderColor }) => {
   return React.createElement(
     'button',
     {
-      className: `flex items-center justify-center gap-1 rounded-full px-4 py-2 text-sm md:text-base lg:text-lg ${variant} border ${borderColor}`,
+      className: `flex items-center justify-center rounded-full text-xs md:text-sm lg:text-base font-semibold ${variant} border ${borderColor}`,
       type: type
     },
     React.createElement('span', { className: 'mr-2' }, title),

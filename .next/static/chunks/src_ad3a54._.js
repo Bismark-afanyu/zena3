@@ -14,7 +14,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$prop$2d$type
 ;
 const Button = ({ type, title, icon, variant, borderColor })=>{
     return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].createElement('button', {
-        className: `flex items-center justify-center gap-1 rounded-full px-4 py-2 text-sm md:text-base lg:text-lg ${variant} border ${borderColor}`,
+        className: `flex items-center justify-center rounded-full text-xs md:text-sm lg:text-base font-semibold ${variant} border ${borderColor}`,
         type: type
     }, /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].createElement('span', {
         className: 'mr-2'
@@ -207,17 +207,17 @@ const Navbar = ()=>{
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                             src: "/logos/Zena Logo trnsptw 1.png",
                             alt: "logo",
-                            width: 50,
-                            height: 20
+                            width: 40,
+                            height: 40
                         }, void 0, false, {
                             fileName: "[project]/src/components/layout/navbar.jsx",
                             lineNumber: 53,
-                            columnNumber: 13
+                            columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/components/layout/navbar.jsx",
                         lineNumber: 52,
-                        columnNumber: 11
+                        columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
                         className: "hidden h-full gap-12 lg:flex",
@@ -230,17 +230,17 @@ const Navbar = ()=>{
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/layout/navbar.jsx",
                                     lineNumber: 63,
-                                    columnNumber: 13
+                                    columnNumber: 15
                                 }, this)
                             }, link.key, false, {
                                 fileName: "[project]/src/components/layout/navbar.jsx",
                                 lineNumber: 62,
-                                columnNumber: 11
+                                columnNumber: 13
                             }, this))
                     }, void 0, false, {
                         fileName: "[project]/src/components/layout/navbar.jsx",
                         lineNumber: 60,
-                        columnNumber: 11
+                        columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "lg:flexCenter  mr-10",
@@ -251,18 +251,18 @@ const Navbar = ()=>{
                         }, void 0, false, {
                             fileName: "[project]/src/components/layout/navbar.jsx",
                             lineNumber: 78,
-                            columnNumber: 13
+                            columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/components/layout/navbar.jsx",
                         lineNumber: 77,
-                        columnNumber: 11
+                        columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/layout/navbar.jsx",
                 lineNumber: 47,
-                columnNumber: 9
+                columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
                 className: "fixed bottom-0 left-0 right-0 bg-white z-30 shadow-lg sm:flex lg:hidden flex-col items-center",
@@ -386,7 +386,7 @@ const Footer = ()=>{
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
                                     src: "/logos/Zena Logo trnsptw 1.png",
                                     alt: "Logo",
-                                    className: "w-1/4 h-auto mb-4 pl-10"
+                                    className: "w-1/2 h-auto mb-4 pl-10"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/home/footer-section.jsx",
                                     lineNumber: 13,

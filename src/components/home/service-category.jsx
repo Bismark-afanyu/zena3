@@ -1,8 +1,34 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { CiLocationOn, CiSearch } from "react-icons/ci";
+import { CiSearch } from "react-icons/ci";
 
 const ServiceCategories = () => {
+  const [showDropdown, setShowDropdown] = useState(false);
+  const [searchInput, setSearchInput] = useState("");
+
+  const serviceOptions = [
+    { name: "Electrician", icon: "/home/electric_bolt.svg" },
+    { name: "Event Photographer", icon: "/home/photo_camera.svg" },
+    { name: "Makeup Artist", icon: "/explore/health_and_beauty.svg" },
+    { name: "Personal Fitness Trainer", icon: "/home/exercise.svg" },
+    { name: "Nail Technician", icon: "/explore/pan_tool.svg" },
+    { name: "Nutritionist", icon: "/home/nutrition.svg" },
+    { name: "Plumber", icon: "/home/plumbing.svg" },
+    { name: "House Cleaner", icon: "/home/cleaning_services.svg" },
+    { name: "Gardener", icon: "/home/yard.svg" },
+    { name: "Carpenter", icon: "/home/carpenter.svg" },
+    { name: "Fumigators", icon: "/home/pest_control (1).svg" },
+    { name: "DJ for Events", icon: "/home/artist.svg" },
+    { name: "Hair Stylist", icon: "/explore/health_and_beauty.svg" },
+  ];
+
+  const handleSelect = (option) => {
+    setSearchInput(option.name);
+    setShowDropdown(false);
+  };
   const categories = [
     {
       name: "Beauty",
@@ -55,7 +81,7 @@ const ServiceCategories = () => {
         "Massage Therapy",
         "Nutritionist & Dietitians",
       ],
-      navigateTo: "beauty",
+      navigateTo: "Health and Wellness",
       image: "/home/gym.svg",
     },
     {
@@ -66,9 +92,22 @@ const ServiceCategories = () => {
     },
   ];
 
+  const filteredCategories = categories.filter(
+    (category) =>
+      category.name.toLowerCase().includes(searchInput.toLowerCase()) ||
+      category.branches.some((branch) =>
+        branch.toLowerCase().includes(searchInput.toLowerCase())
+      )
+  );
+
+  const handleInputChange = (e) => {
+    setSearchInput(e.target.value);
+    setShowDropdown(e.target.value !== "");
+  };
+
   return (
     <div
-      className=" bg-white w-full pt-[50px] pb-[50px] max-lg:pb-[100px]"
+      className="bg-white w-full pt-[50px] pb-[50px] max-lg:pb-[100px]"
       id="categories"
     >
       <div className="flex flex-col items-center justify-center gap-[40px] lg:gap-[70px]">
@@ -76,9 +115,13 @@ const ServiceCategories = () => {
           <p className="text-primary text-[24px] font-bold">
             Service Categories
           </p>
+
           <div className="relative w-full h-[45px] rounded-[50px]">
             <input
               type="text"
+              value={searchInput}
+              onChange={(e) => setSearchInput(e.target.value)}
+              onClick={() => setShowDropdown(true)}
               className="w-full h-full rounded-[50px] border pl-[20px] lg:pl-[60px] pr-[60px] focus:text-black outline-Teal_blue-50"
               placeholder="Find trusted services, e.g., hair styling or plumbing"
             />
@@ -88,8 +131,38 @@ const ServiceCategories = () => {
             <button className="h-[35px] w-[35px] bg-white bg-opacity-55 font-bold text-primary flex items-center justify-center absolute top-1/2 -translate-y-1/2 rounded-[100%] right-[8px] lg:left-[8px]">
               <CiSearch size={26} />
             </button>
+
+            {showDropdown && (
+              <div className="absolute top-[110%] left-0 w-full bg-white border rounded-md shadow-md z-10 max-h-[200px] overflow-y-auto">
+                {serviceOptions
+                  .filter((option) =>
+                    option.name
+                      .toLowerCase()
+                      .includes(searchInput.toLowerCase())
+                  )
+                  .map((option, index) => (
+                    <div
+                      key={index}
+                      onClick={() => handleSelect(option)}
+                      className="px-4 py-2 flex items-center gap-3 hover:bg-gray-100 cursor-pointer"
+                    >
+                      <div className="relative flex items-center justify-center w-[40px] h-[40px] rounded-full bg-Teal_blue-5">
+                        <div className="absolute inset-0 border-[3px] border-dotted border-yellow-400 rounded-full"></div>
+                        <Image
+                          src={option.icon}
+                          alt={option.name}
+                          width={20}
+                          height={20}
+                        />
+                      </div>
+                      <span>{option.name}</span>
+                    </div>
+                  ))}
+              </div>
+            )}
           </div>
         </div>
+
         <div className="flex items-center justify-center">
           <div className="w-[95%] grid md:grid-cols-2 lg:grid-cols-3 gap-[21px]">
             {categories.map((category, index) => (
